@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "yieldcurve",
+  "private_key_id": "4a9416385ba1cb91dd9cdf27ba32f38d6ae57e50",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCzwf6mpCR8B6JB\nYhUrtTq0ual8zCLQvreq+m4bBLGOan2J005NGdTkNuaERHoluvOSH2QnBXfFaT1h\nFjlK0LRlmuZPk44IMCWlrd2Obiu1KpVQB2fx7+hjaosfvaTV4EapSedtqrEfOqzl\nRJqs9G1gNt59lMJ98nflAdS5WazBFpXSiZEve8XkUbh0IO7QsBztNPb088Z/6izm\nJGrjayoWeF+Jw36fU/0gQ23v7fc/UP31OFnjXVHSGzpaLfNvAQEmd6Qhn/EojJAT\n76VB3M6xi4FSRu1sVXoz7DZg0NxZr41uoTqsArWamO9A71cdnEMzLScY9JtfoYH3\ngzwbq2FbAgMBAAECggEAMLic78e/h8p95ODTwiP9xGwqDwQ5T4DRwUrdOv97rJEa\nc5fNOkKNHEnxEtqIjN9uEyXk/FqUCvKqSz09zBRjQMLKN7lTns6F9bD5QxiDSjg/\nfhBz0PRodUG0cabyHXILVOkODABev4skv4NntQcO+iwFA96lFIP6kRx87rvqge7L\nqJRSUIeqvWhU5GgWkdvHbMtoiTfCdDQIzuINwR9v3A/QjRgTuunBYHWxw6ADQKRK\nsBWcbxtS/jMvK956VIFKJCYkyzS4yqm1mQIipiomxD7m/WBx02k9swuAib6Da8QD\nJ/ATQWRqnfT90aVi8qzdcXe/2tBnbLSEEwLqV1xh0QKBgQDkr5FHNnTsVJQFqmZp\nCgST/jg653gj1LemTRgn2Wb5IK+rljwaXxVPbYh62k5fUUAFwGM+nFVtbaukyYCk\nwqRFFe4q17iMO5wzdVfiwKMGE5HWzwoXtcE70t/d0w0uEZRQOZ2laKWMe30ANP9r\nhfgJDDCMZzFyp5n3j9SgG37UswKBgQDJOmAOhoYajvY0FObaqdOf/ASgqS+Lfqv2\nAO5y3rSjKvgJlq2HOp3+wzAO3byqCU++TtsuUduS6fImw9vl/CNWOSVXFYJHooXL\nvWyDrbuX5hyrW+L81FMOg0YWGLlUopfNjuXvUR4fW/ZOrOMg1/5jBRZEcendvwUm\nxHO+6rukuQKBgQCHB6fHnb8SYKp6YfBQa2rim8RF+7Dzr0G1P2ZY+USVK5iuv2nD\nxIsHuExTBh4qqAYen0e6i4Lht1UXWyfLoWZvqJBV2cSNgREtTUdUi5x3FQ0TAnMa\nJubvVQd8qobowdaKPEr6hTzjI3NesOx0Z8laRklQTgpjgdUm2VWaKEIOgwKBgFA7\nGCVyeXGJYpytYMX6REhbYTT1f+FsZf+1q1zdcsRD05VvIEz0kB4NkNG8kwZwo/zK\n0BUNyjAvWr8eBEUUXLp6Gms4RjNtl07+fY+a61rLAs9H2Z7YwSzeJkmVHf+ivEfX\nG9JpU0tJjVEdGYn01JaCZrhvesFQ8irc1RFf4eTxAoGBAM368fr41Hjl2tvqyrjT\nk51/i9Ojdd5P2RVaRbZBTbDabJW4rOIdW8f637Hi+N+gti8HA1TFxStVtys3h3xU\nFLibWiyV0cvV84UOgjnOlMS8rDOqhNdjzHxXnnaLpd+BhrzKqQnpD6s+jzIZeDt1\nBgwxx5NeQgnnwMmDqMKXKv88\n-----END PRIVATE KEY-----\n",
+  "client_email": "getyieldcurvedatafrominvesting@yieldcurve.iam.gserviceaccount.com",
+  "client_id": "103056924164485006775",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/getyieldcurvedatafrominvesting%40yieldcurve.iam.gserviceaccount.com"
+}
