@@ -30,7 +30,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/FuJiK/YIELDCURVE3D
-        git add yield_curve_3d.html
+        git add yield_curve_3d_us.html
         CURRENT_DATE=$(date +%Y-%m-%d)
         git commit -m "Update yield curve 3D HTML for ${CURRENT_DATE}" || echo "No changes to commit"
         git push
