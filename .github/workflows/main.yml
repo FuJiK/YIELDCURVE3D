@@ -29,6 +29,5 @@ jobs:
       with:
         commit_message: "Update yield curve 3D HTML for $(date +%Y-%m-%d) -- Empty commit"
         commit_options: '--allow-empty'
-        repository: ${{ github.repository }}
         branch: ${{ github.ref }}
-        github_token: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
+        file_pattern: "*.html"
