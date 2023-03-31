@@ -37,7 +37,7 @@ jobs:
         git commit --allow-empty -m "Update yield curve 3D HTML for ${CURRENT_DATE} -- Empty commit" || echo "No changes to commit"
 
     - name: Push changes
-      uses: ad-m/github-push-action@ma
+      uses: ad-m/github-push-action@main
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
