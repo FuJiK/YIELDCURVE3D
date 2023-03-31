@@ -21,24 +21,26 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install numpy plotly quandl matplotlib ipywidgets ipykernel
+
     - name: Generate HTML
       run: python yield_curve_3d_us.py
-    
+
     - name: Configure Git
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
 
-    - name: Commit and push changes
-      env:
-        MY_PERSONAL_ACCESS_TOKEN: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
+    - name: Commit changes
       run: |
-        git remote set-url origin https://x-access-token:${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}@github.com/FuJiK/YIELDCURVE3D
         git add yield_curve_3d_us.html
         CURRENT_DATE=$(date +%Y-%m-%d)
         git commit --allow-empty -m "Update yield curve 3D HTML for ${CURRENT_DATE} -- Empty commit" || echo "No changes to commit"
-        git push
 
+    - name: Push changes
+      uses: ad-m/github-push-action@ma
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
 
 
 
