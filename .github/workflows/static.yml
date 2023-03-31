@@ -31,9 +31,9 @@ jobs:
 
     - name: Commit and push changes
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MY_PERSONAL_ACCESS_TOKEN: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
       run: |
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/FuJiK/YIELDCURVE3D
+        git remote set-url origin https://x-access-token:${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}@github.com/FuJiK/YIELDCURVE3D
         git add yield_curve_3d_us.html
         CURRENT_DATE=$(date +%Y-%m-%d)
         git commit --allow-empty -m "Update yield curve 3D HTML for ${CURRENT_DATE} -- Empty commit" || echo "No changes to commit"
