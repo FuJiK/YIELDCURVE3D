@@ -1,11 +1,8 @@
 # %%
 import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+import plotly.graph_objects as go
 import quandl
 import matplotlib.dates as dates
-import matplotlib.ticker as ticker
-from ipywidgets import interact
 
 # %%
 # Fetch data from Quandl
@@ -28,28 +25,21 @@ y = np.array(y_data, dtype='f')
 z = np.array(z_data, dtype='f')
 
 # %%
-def plot_interactive_3d(elev=10, azim=270):
-    fig = plt.figure(figsize=(30, 20))
-    ax = fig.add_subplot(111, projection='3d')
-    
-    surf = ax.plot_surface(x, y, z, rstride=50, cstride=1, cmap='inferno', vmin=np.nanmin(z), vmax=np.nanmax(z))
+# Create a 3D surface plot
+fig = go.Figure(data=[go.Surface(x=x, y=y, z=z, colorscale='Inferno', showscale=True)])
 
-    ax.set_title('US Treasury Yield Curve')
-    ax.set_ylabel('Maturity')
-    ax.set_zlabel('Yield')
-    ax.set_xlabel('Term')
+fig.update_layout(title='US Treasury Yield Curve', scene=dict(
+    xaxis_title='Term',
+    yaxis_title='Maturity',
+    zaxis_title='Yield'
+))
 
-    ax.view_init(elev=elev, azim=azim)
+# %%
+# Save the figure as an HTML file
+fig.write_html('yield_curve_3d_us.html')
 
-    def format_date(x, pos=None):
-        return dates.num2date(x).strftime('%Y-%m-%d')
-
-    ax.w_xaxis.set_major_formatter(ticker.FuncFormatter(format_date))
-    for tl in ax.w_xaxis.get_ticklabels():
-        tl.set_ha('right')
-        tl.set_rotation(15)
-    fig.colorbar(surf)
-    plt.show()
-interact(plot_interactive_3d, elev=(0, 90, 5), azim=(0, 360, 5))
+# %%
+# Show the figure in the notebook (optional)
+fig.show()
 
 
