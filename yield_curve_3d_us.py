@@ -36,7 +36,7 @@ fig.update_layout(title='US Treasury Yield Curve', scene=dict(
 
 # %%
 # Save the figure as an HTML file
-fig.write_html('./dist/yield_curve_3d_us.html')
+fig.write_html('./docs/yield_curve_3d_us.html')
 
 # %%
 # Show the figure in the notebook (optional)
