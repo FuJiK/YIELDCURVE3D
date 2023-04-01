@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/FuJiK/YIELDCURVE3D/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/FuJiK/YIELDCURVE3D/actions/workflows/pages/pages-build-deployment)
+
 # YIELDCURVE3D
 US_YIELDCURVE3DModel
 
