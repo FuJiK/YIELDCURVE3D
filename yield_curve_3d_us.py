@@ -81,6 +81,6 @@ fig.write_html(
 
 # %%
 # Show the figure in the notebook (optional)
-fig.show()
+# fig.show()
 
 
