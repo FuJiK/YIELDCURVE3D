@@ -22,7 +22,7 @@ header = [float(name.split(" ")[0]) / (12 if name.split(" ")[1] == 'Mo' else 1) 
 # Extract x, y, and z data
 # Convert x_data to string format
 x_data = [[pd.to_datetime(dt).strftime('%Y%m%d') for i in range(len(data.dtype.names)-1)] for dt in data.Date]
-x_data
+#x_data
 # x_data = [[dates.date2num(dt) for i in range(len(data.dtype.names)-1)] for dt in data.Date]
 y_data = [header] * len(data)
 z_data = [list(row.tolist()[1:]) for row in data]
