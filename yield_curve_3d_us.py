@@ -10,7 +10,7 @@ from datetime import datetime
 
 # %%
 # Fetch data from Quandl
-data = quandl.get('USTREASURY/YIELD', returns='numpy', trim_start="2023-08-01")
+data = quandl.get('USTREASURY/YIELD', returns='numpy', trim_start="2022-08-01")
 
 # %%
 # Convert header to float
