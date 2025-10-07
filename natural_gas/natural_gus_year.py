@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup
+from io import BytesIO
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
@@ -9,21 +9,22 @@ def get_cot_data_for_date(date):
     report_url = f'https://www.cftc.gov/files/dea/history/dea_fut_xls_{date}.xls'
 
     response = requests.get(report_url)
-    
+
     # ファイルが存在しない場合、Noneを返す
-    if response.status_code == 404:
+    if response.status_code != 200:
         return None
 
-    soup = BeautifulSoup(response.text, 'html.parser')
+    # CFTCのファイルはExcel形式なので、BeautifulSoupではなくpandasで読み込む
+    df = pd.read_excel(BytesIO(response.content), header=None)
 
-    # 天然ガスのデータが含まれる行を見つける
-    natural_gas_row = soup.find('tr', string='NATURAL GAS - NEW YORK MERCANTILE EXCHANGE')
+    # 対象行を検索
+    row = df[df.iloc[:, 0] == 'NATURAL GAS - NEW YORK MERCANTILE EXCHANGE']
+    if row.empty:
+        return None
 
-    # 天然ガスのデータを取得
-    columns = natural_gas_row.find_all('td')
-    open_interest = int(columns[1].text.replace(',', ''))
-    long_positions = int(columns[2].text.replace(',', ''))
-    short_positions = int(columns[3].text.replace(',', ''))
+    open_interest = int(row.iloc[0, 1])
+    long_positions = int(row.iloc[0, 2])
+    short_positions = int(row.iloc[0, 3])
 
     return open_interest, long_positions, short_positions
 
