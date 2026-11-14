@@ -1,0 +1,47 @@
+name: Update yield curve dashboard
+
+on:
+  schedule:
+    # Weekdays 21:00 UTC (06:00 JST next calendar day) — daily refresh is enough for Treasury yields
+    - cron: "0 21 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: yield-curve-dashboard
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate dashboard HTML
+        env:
+          QUANDL_API_KEY: ${{ secrets.QUANDL_API_KEY }}
+        run: python yield_curve_3d_us.py
+
+      - name: Commit and push docs/index.html
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html
+          if git diff --staged --quiet; then
+            echo "No changes to docs/index.html"
+            exit 0
+          fi
+          git commit -m "chore: refresh US yield curve 3D dashboard"
+          git push

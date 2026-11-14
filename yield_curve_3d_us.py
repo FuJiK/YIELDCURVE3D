@@ -8,8 +8,10 @@ import plotly.io as pio
 import pandas as pd
 from datetime import datetime
 
+from credential.env import require_quandl_key
+
 # %%
-# Fetch data from Quandl
+require_quandl_key()
 data = quandl.get('USTREASURY/YIELD', returns='numpy', trim_start="2022-08-01")
 
 # %%
