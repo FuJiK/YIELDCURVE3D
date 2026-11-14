@@ -34,13 +34,22 @@ jobs:
           QUANDL_API_KEY: ${{ secrets.QUANDL_API_KEY }}
         run: python yield_curve_3d_us.py
 
-      - name: Commit and push docs/index.html
+      - name: Deploy production site (gh-pages + custom domain)
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: dashboard.theshibsters.com
+
+      - name: Commit dashboard artifacts on main
+        if: github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html
+          git add docs/index.html dist/index.html
           if git diff --staged --quiet; then
-            echo "No changes to docs/index.html"
+            echo "No HTML changes to commit"
             exit 0
           fi
           git commit -m "chore: refresh US yield curve 3D dashboard"

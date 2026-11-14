@@ -10,7 +10,9 @@ Python 3.11+（`requirements.txt` 参照）
 
 - 環境変数の一覧: [`.env.example`](.env.example)
 - 詳細: [`docs/SECRETS.md`](docs/SECRETS.md)
-- ダッシュボード更新: GitHub Actions [`.github/workflows/update-yield-curve.yml`](.github/workflows/update-yield-curve.yml)（平日1回 / 手動実行可）→ 出力は [`docs/index.html`](docs/index.html)
+- ダッシュボード更新: [`.github/workflows/update-yield-curve.yml`](.github/workflows/update-yield-curve.yml)（平日1回 / 手動実行可）
+  - **本番**: gh-pages → `https://dashboard.theshibsters.com`（`dist/`）
+  - **リポジトリ内コピー**: [`docs/index.html`](docs/index.html)
 
 ## Files
 - 3d_yield_curve_us.ipynb（Done）

@@ -30,7 +30,17 @@ python yield_curve_3d_us.py
 
 **Settings → Secrets and variables → Actions** で登録してください。
 
-以前の `MY_PERSONAL_ACCESS_TOKEN` / `ACTIONS_DEPLOY_KEY` は **このワークフローでは不要** です（`GITHUB_TOKEN` で `docs/index.html` をコミット）。
+## 本番デプロイ（カスタムドメイン）
+
+本番は **gh-pages ブランチ** → `dashboard.theshibsters.com` です。ワークフローが `dist/` を `peaceiris/actions-gh-pages` で公開します（`main` ブランチでの実行時のみ）。
+
+| 出力 | 用途 |
+|------|------|
+| `dist/index.html` | カスタムドメインルート |
+| `dist/yield_curve_3d_us.html` | 従来 URL の互換 |
+| `docs/index.html` | main 上のアーカイブ・プレビュー |
+
+`MY_PERSONAL_ACCESS_TOKEN` / `ACTIONS_DEPLOY_KEY` は **不要** です（`GITHUB_TOKEN` で gh-pages 公開と main への HTML コミット）。
 
 ## 過去にコミットされていたキーについて
 
