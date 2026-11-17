@@ -8,8 +8,10 @@ import plotly.io as pio
 import pandas as pd
 from datetime import datetime
 
+from credential.env import require_quandl_key
+
 # %%
-# Fetch data from Quandl
+require_quandl_key()
 data = quandl.get('USTREASURY/YIELD', returns='numpy', trim_start="2022-08-01")
 
 # %%
@@ -85,13 +87,17 @@ fig.update_layout(
 fig.update_xaxes(automargin=True)
 fig.update_yaxes(automargin=True)
 
-# Save the figure as an HTML file with responsive settings
-fig.write_html(
-    './docs/index.html',
-    config={'responsive': True},
-    include_plotlyjs='cdn',  # Use Plotly.js CDN for smaller file size
-    full_html=False  # Remove HTML header and footer to reduce file size and improve loading speed
+html_kwargs = dict(
+    config={"responsive": True},
+    include_plotlyjs="cdn",
+    full_html=False,
 )
+for output_path in (
+    "./docs/index.html",
+    "./dist/index.html",
+    "./dist/yield_curve_3d_us.html",  # legacy URL on gh-pages
+):
+    fig.write_html(output_path, **html_kwargs)
 
 # %%
 # Show the figure in the notebook (optional)

@@ -1,2 +1,6 @@
-# api_key.py
-FRED_API_KEY = "40f8eb47dc4baffae1b5ce41d4bd61df"  # FREDから取得したAPIキーを入力
+"""API keys from environment variables. See /.env.example at repository root."""
+
+import os
+
+FRED_API_KEY = os.environ.get("FRED_API_KEY", "")
+QUANDL_API_KEY = os.environ.get("QUANDL_API_KEY", "")
